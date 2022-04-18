@@ -1,7 +1,7 @@
 resource "azurerm_resource_group" "first_resource_group" {
   name     = "rg-first_storage_account_udemy"
   location = var.location
-  tags = ""
+  tags = local.common_tags
 
 }
 
@@ -12,9 +12,7 @@ resource "azurerm_storage_account" "fist_storage_account" {
   account_tier             = var.account_tier
   account_replication_type = var.account_replication_type
 
-  tags = {
-    environment = ""
-  }
+  tags = local.common_tags
 }
 
 resource "azurerm_storage_container" "first_container" {
